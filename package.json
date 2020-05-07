@@ -1,20 +1,24 @@
 {
-  "name": "gatsby-personal-starter-blog",
+  "name": "francisco-delgado-blog",
   "private": true,
   "description": "A personal blog starter for a blog powered by Netlify CMS, based on the default blog starter",
   "version": "1.0.0",
-  "author": "Thomas Wang <thomas@wang.sh>",
+  "author": "Francisco Delgado <francisco@francistogram.com>",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
+    "antd": "^4.2.0",
+    "aphrodite": "^2.4.0",
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.3.25",
     "gatsby-image": "^2.0.39",
+    "gatsby-plugin-antd": "^2.2.0",
     "gatsby-plugin-feed-mdx": "^1.0.0",
     "gatsby-plugin-google-analytics": "^2.0.18",
+    "gatsby-plugin-less": "^3.2.1",
     "gatsby-plugin-manifest": "^2.0.29",
     "gatsby-plugin-mdx": "^1.0.52",
     "gatsby-plugin-netlify-cms": "^4.0.0",
@@ -30,6 +34,7 @@
     "gatsby-remark-vscode": "^1.0.4",
     "gatsby-source-filesystem": "^2.0.29",
     "gatsby-transformer-sharp": "^2.1.18",
+    "less": "^3.11.1",
     "netlify-cms-app": "^2.9.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -43,6 +48,7 @@
     "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {
+    "babel-plugin-import": "^1.13.0",
     "prettier": "^1.17.0"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",

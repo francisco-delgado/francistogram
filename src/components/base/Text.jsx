@@ -51,6 +51,8 @@ export default function Text({
         overflow,
         textOverflow,
         textTransform,
+        // TODO(francisco): Why is this needed
+        marginTop: 0,
       }}
     >
       {children}

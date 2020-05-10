@@ -8,6 +8,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.1.0",
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
     "antd": "^4.2.0",
@@ -36,9 +37,11 @@
     "gatsby-transformer-sharp": "^2.1.18",
     "less": "^3.11.1",
     "netlify-cms-app": "^2.9.1",
+    "normalize.css": "^8.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
+    "react-spring": "^8.0.27",
     "react-switch": "^5.0.0",
     "react-typography": "^0.16.19",
     "styled-components": "^4.2.0",

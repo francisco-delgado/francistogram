@@ -24,9 +24,17 @@ export const typeScale = {
   title: {
     fontSize: "20px",
     fontFamily: "Montserrat, sans-serif",
-    lineHeight: "20px",
+    lineHeight: "32px",
     letterSpacing: 0,
     fontWeight: fontWeights.bold,
+    fontStyle: "normal",
+  },
+  link: {
+    fontSize: "20px",
+    fontFamily: "Jost, sans-serif",
+    lineHeight: "20px",
+    letterSpacing: 0,
+    fontWeight: fontWeights.regular,
     fontStyle: "normal",
   },
   base: {

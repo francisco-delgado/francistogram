@@ -29,6 +29,7 @@ const tagMap = {
 
 export default function Text({
   children,
+  customFontSize = null,
   scale = "base",
   weight = "regular",
   fontStyle = "normal",
@@ -37,11 +38,14 @@ export default function Text({
   textTransform = "initial",
 }) {
   const Tag = tagMap[scale];
+  const fontProps = customFontSize
+    ? { ...typeScale[scale], fontSize: customFontSize }
+    : typeScale[scale];
 
   return (
     <Tag
       style={{
-        ...typeScale[scale],
+        ...fontProps,
         fontWeight: fontWeights[weight],
         fontStyle,
         overflow,

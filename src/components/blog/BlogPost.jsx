@@ -3,15 +3,15 @@ import { Link, graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { MDXProvider } from "@mdx-js/react";
 
-import Layout from "../components/layout/Layout";
-import CenterColumn from "../components/layout/CenterColumn";
+import Layout from "../layout/Layout";
+import CenterColumn from "../layout/CenterColumn";
 
-import Bio from "../components/bio";
-import SEO from "../components/seo";
+import Bio from "./Bio";
+import SEO from "../seo";
 
-import TextLink from "../components/base/TextLink";
-import Text from "../components/base/Text";
-import Blockquote from "../components/base/Blockquote";
+import TextLink from "../base/TextLink";
+import Text from "../base/Text";
+import Divider from "../base/Divider";
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -34,8 +34,8 @@ class BlogPostTemplate extends React.Component {
           </Text>
           <MDXRenderer>{post.body}</MDXRenderer>
           <hr />
+          <Divider />
           <Bio />
-
           <ul
             style={{
               display: `flex`,

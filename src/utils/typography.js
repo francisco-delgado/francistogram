@@ -25,11 +25,17 @@ const typography = new Typography({
   boldWeight: 700,
   overrideStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => ({
     a: {
-      color: "#fb251b",
+      color: colors.opal,
       textDecoration: "none",
+      borderBottom: "2px solid",
+      borderBottomColor: "transparent",
+      paddingBottom: rhythm(1 / 6),
+      transition: "0.3s",
     },
-    "a:hover,a:active": {
-      color: options.bodyColor,
+    "a:hover": {
+      borderBottomColor: "inherit",
+      paddingBottom: 0,
+      transition: "0.3s",
     },
     "h1,h2,h3,h4,h5,h6": {
       marginTop: rhythm(2),
@@ -49,7 +55,7 @@ const typography = new Typography({
       marginBottom: 0,
     },
     "blockquote cite": {
-      ...adjustFontSizeTo(options.baseFontSize),
+      fontSize: options.baseFontSize,
       color: options.bodyColor,
       fontWeight: options.bodyWeight,
     },

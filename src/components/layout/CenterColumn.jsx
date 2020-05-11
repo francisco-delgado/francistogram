@@ -8,7 +8,7 @@ export default function CenterColumn({ children }) {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 100,
-    maxWidth: 640,
+    maxWidth: 680,
     marginLeft: "auto",
     marginRight: "auto",
   },

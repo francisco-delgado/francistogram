@@ -13,7 +13,7 @@ import colors from "../styles/colors";
 
 const fontSize = "48px";
 
-export default function Bio() {
+export default function Intro() {
   const items = [
     <Text scale="display" customFontSize={fontSize}>
       {`what's on `}

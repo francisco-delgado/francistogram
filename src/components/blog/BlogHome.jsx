@@ -16,7 +16,7 @@ export default function BlogHome() {
             {posts.map(({ node }) => {
               const title = node.frontmatter.title || node.fields.slug;
               return (
-                <div>
+                <>
                   <TextLink
                     scale="title"
                     weight="bold"
@@ -24,9 +24,13 @@ export default function BlogHome() {
                   >
                     {title}
                   </TextLink>
-                  <Text color="lightGrey">{node.frontmatter.date}</Text>
-                  <Text>{node.frontmatter.description || node.excerpt}</Text>
-                </div>
+                  <Text color="lightGrey" marginBottom={8}>
+                    {node.frontmatter.date} • {node.fields.readingTime.text}
+                  </Text>
+                  <p style={{ marginBottom: 8 }}>
+                    {node.frontmatter.description || node.excerpt}
+                  </p>
+                </>
               );
             })}
           </Group>
@@ -49,6 +53,9 @@ const query = graphql`
           excerpt
           fields {
             slug
+            readingTime {
+              text
+            }
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")

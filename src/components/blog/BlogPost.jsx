@@ -7,7 +7,7 @@ import Layout from "../layout/Layout";
 import CenterColumn from "../layout/CenterColumn";
 
 import Bio from "./Bio";
-import SEO from "../seo";
+import SEO from "../base/seo";
 
 import TextLink from "../base/TextLink";
 import Text from "../base/Text";
@@ -30,7 +30,7 @@ class BlogPostTemplate extends React.Component {
             {post.frontmatter.title}
           </Text>
           <Text color="lightGrey" marginBottom={16}>
-            {post.frontmatter.date}
+            {post.frontmatter.date} • {post.fields.readingTime.text}
           </Text>
           <MDXRenderer>{post.body}</MDXRenderer>
           <hr />
@@ -84,6 +84,11 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+      }
+      fields {
+        readingTime {
+          text
+        }
       }
     }
   }

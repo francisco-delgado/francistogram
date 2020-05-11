@@ -1,44 +1,29 @@
-/**
- * Bio component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
-
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
+import { css, StyleSheet } from "aphrodite";
 import Image from "gatsby-image";
 import styled from "styled-components";
 
-function Bio() {
+import Group from "../base/Group";
+
+import colors from "../styles/colors";
+
+export default function Bio() {
   return (
     <StaticQuery
       query={bioQuery}
       render={data => {
         const { author, social } = data.site.siteMetadata;
         return (
-          <Container>
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
-              alt={author}
-              style={{
-                marginBottom: 0,
-                minWidth: 50,
-                borderRadius: `100%`,
-              }}
-              imgStyle={{
-                borderRadius: `50%`,
-              }}
-            />
+          <>
+            <p className={css(styles.writtenBy)}>Written by</p>
+            <h3 className={css(styles.author)}>{author}</h3>
             <p>
-              Written by <strong>{author}</strong> who lives and works in San
-              Francisco building useful things.
-              {` `}
-              <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
-              </a>
+              Living in San Francisco. Engineer @{" "}
+              <a href="https://www.flexport.com">Flexport</a>. ECE/CS @{" "}
+              <a href="www.cmu.com">CMU 2015</a>.
             </p>
-          </Container>
+          </>
         );
       }}
     />
@@ -65,8 +50,13 @@ const bioQuery = graphql`
   }
 `;
 
-const Container = styled.div`
-  display: flex;
-`;
-
-export default Bio;
+const styles = StyleSheet.create({
+  writtenBy: {
+    marginBottom: 0,
+    color: colors.lightGrey,
+  },
+  author: {
+    marginTop: 2,
+    marginBottom: 8,
+  },
+});

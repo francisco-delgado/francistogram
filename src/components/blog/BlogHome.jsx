@@ -1,52 +1,40 @@
 import * as React from "react";
-import { Link, StaticQuery, graphql } from "gatsby";
-import { css, StyleSheet } from "aphrodite";
+import { navigate, StaticQuery, graphql } from "gatsby";
+
+import Group from "../base/Group";
+import TextLink from "../base/TextLink";
+import Text from "../base/Text";
 
 export default function BlogHome() {
   return (
     <StaticQuery
       query={query}
       render={data => {
-        const siteTitle = data.site.siteMetadata.title;
         const posts = data.allMdx.edges;
         return (
-          <div style={{ margin: "20px 0 40px" }}>
+          <Group flexDirection="column" gap={16}>
             {posts.map(({ node }) => {
               const title = node.frontmatter.title || node.fields.slug;
               return (
-                <div key={node.fields.slug}>
-                  <h3>
-                    <Link
-                      style={{ boxShadow: `none` }}
-                      to={`blog${node.fields.slug}`}
-                    >
-                      {title}
-                    </Link>
-                  </h3>
-                  <small>{node.frontmatter.date}</small>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: node.frontmatter.description || node.excerpt,
-                    }}
-                  />
+                <div>
+                  <TextLink
+                    scale="title"
+                    weight="bold"
+                    onClick={() => navigate(`blog${node.fields.slug}`)}
+                  >
+                    {title}
+                  </TextLink>
+                  <Text color="lightGrey">{node.frontmatter.date}</Text>
+                  <Text>{node.frontmatter.description || node.excerpt}</Text>
                 </div>
               );
             })}
-          </div>
+          </Group>
         );
       }}
     />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    maxWidth: 840,
-    display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
-  },
-});
 
 const query = graphql`
   query BlogHomeQuery {

@@ -43,6 +43,7 @@ export default function TextLink({
 const styles = StyleSheet.create({
   textLink: {
     cursor: "pointer",
+    textDecoration: "none",
     boxShadow: "none",
     borderBottom: "2px solid",
     borderBottomColor: "transparent",

@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     display: "block",
     marginLeft: "auto",
     marginRight: "auto",
-    width: "100%",
     padding: 30,
   },
   socialMedia: {

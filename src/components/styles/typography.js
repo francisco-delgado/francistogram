@@ -32,13 +32,13 @@ export const typeScale = {
   link: {
     fontSize: "20px",
     fontFamily: "Jost, sans-serif",
-    lineHeight: "20px",
+    lineHeight: "24px",
     letterSpacing: 0,
     fontWeight: fontWeights.regular,
     fontStyle: "normal",
   },
   base: {
-    fontSize: "14px",
+    fontSize: "16px",
     fontFamily: "Jost, sans-serif",
     lineHeight: "20px",
     letterSpacing: 0,

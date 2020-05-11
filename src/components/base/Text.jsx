@@ -2,10 +2,13 @@ import * as React from "react";
 
 import { fontWeights, typeScale } from "../styles/typography";
 
+import colors from "../styles/colors";
+
 const tagMap = {
   display: "h1",
   headline: "h3",
   title: "h5",
+  link: "h5",
   base: "p",
   subtext: "span",
   tiny: "span",
@@ -14,7 +17,7 @@ const tagMap = {
 // type Props = {|
 //   +children: React.Node,
 //   /** The size of the text */
-//   +scale?: "display" | "headline" | "title" | "base" | "subtext" | "tiny",
+//   +scale?: "display" | "headline" | "title" | "link" | "base" | "subtext" | "tiny",
 //   /** The boldness of the text */
 //   +weight?: "bold" | "regular",
 //   /** The font style for a text. */
@@ -30,12 +33,14 @@ const tagMap = {
 export default function Text({
   children,
   customFontSize = null,
+  color = "black",
   scale = "base",
   weight = "regular",
   fontStyle = "normal",
   overflow = "visible",
   textOverflow = "initial",
   textTransform = "initial",
+  marginBottom = 24,
 }) {
   const Tag = tagMap[scale];
   const fontProps = customFontSize
@@ -46,6 +51,7 @@ export default function Text({
     <Tag
       style={{
         ...fontProps,
+        color: colors[color],
         fontWeight: fontWeights[weight],
         fontStyle,
         overflow,
@@ -53,6 +59,7 @@ export default function Text({
         textTransform,
         // TODO(francisco): Why is this needed
         marginTop: 0,
+        marginBottom: marginBottom,
       }}
     >
       {children}

@@ -13,7 +13,7 @@ const typography = new Typography({
     },
     {
       name: "Jost",
-      styles: ["Light 300"],
+      styles: ["Light 300", "Regular 500"],
     },
   ],
   headerFontFamily: ["Montserrat", "sans-serif"],
@@ -21,8 +21,8 @@ const typography = new Typography({
   headerColor: "hsla(0,0%,0%,1)",
   bodyColor: "hsla(0,0%,0%,0.8)",
   headerWeight: 600,
-  bodyWeight: 400,
-  boldWeight: 700,
+  bodyWeight: 300,
+  boldWeight: 500,
   overrideStyles: ({ adjustFontSizeTo, scale, rhythm }, options) => ({
     a: {
       color: colors.opal,

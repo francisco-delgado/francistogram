@@ -25,14 +25,7 @@ export default function Header() {
           </TextLink>
           <TextLink
             scale="link"
-            onClick={() => navigate("/blog")}
-            openInNewTab={true}
-          >
-            projects
-          </TextLink>
-          <TextLink
-            scale="link"
-            onClick={() => navigate("/blog")}
+            onClick={() => navigate("/resume")}
             openInNewTab={true}
           >
             resume

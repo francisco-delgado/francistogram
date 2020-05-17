@@ -11,7 +11,7 @@
 /* Hamburger Top */
 
 .hamburger-top {
-  width: calc(var(--width) / 2);
+  width: calc(var(--width) * 0.75);
   position: absolute;
   top: 0px;
   left: 0px;
@@ -52,10 +52,10 @@
 /* Hamburger Bottom */
 
 .hamburger-bottom {
-  width: calc(var(--width) / 2);
+  width: calc(var(--width) * 0.75);
   position: absolute;
   bottom: calc(var(--width) / 2);
-  left: calc(var(--width) / 2);
+  left: calc(var(--width) * 0.25);
   animation: rotateBottom0Deg 0.5s both ease-in-out;
 }
 

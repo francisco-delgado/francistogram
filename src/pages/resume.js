@@ -8,20 +8,22 @@ import Bio from "../components/blog/Bio";
 import SEO from "../components/base/seo";
 import BlogHome from "../components/blog/BlogHome";
 
+const RESUME_PDF = "resume_2020_pdf";
+const RESUME_PNG = "resume_2020_png";
+
 export default function Blog() {
   const data = useStaticQuery(query);
 
-  const url = data.file.publicURL;
+  const edges = data.allFile.edges;
+  const resumePdf = edges.find(edge => edge.node.name === RESUME_PDF).node;
+  const resumePng = edges.find(edge => edge.node.name === RESUME_PNG).node;
   return (
     <Layout>
       <CenterColumn paddingTop={100}>
-        <object
-          data={url}
-          type="application/pdf"
-          style={{ width: 680, height: 760 }}
-        >
-          <embed src={url} type="application/pdf" />
-        </object>
+        <img src={resumePng.publicURL} />
+        <a href={resumePdf.publicURL} download={true}>
+          Download PDF
+        </a>
       </CenterColumn>
     </Layout>
   );
@@ -29,8 +31,13 @@ export default function Blog() {
 
 const query = graphql`
   query ResumeQuery {
-    file(name: { eq: "resume_2018" }) {
-      publicURL
+    allFile(filter: { name: { in: ["resume_2020_pdf", "resume_2020_png"] } }) {
+      edges {
+        node {
+          name
+          publicURL
+        }
+      }
     }
   }
 `;

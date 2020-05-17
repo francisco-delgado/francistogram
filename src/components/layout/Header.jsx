@@ -20,7 +20,7 @@ export default function Header({ menuActive, onMenuClick }) {
 const styles = StyleSheet.create({
   logo: {
     position: "fixed",
-    left: 30,
-    top: 30,
+    left: "min(30px, 7.5vw)",
+    top: 24,
   },
 });

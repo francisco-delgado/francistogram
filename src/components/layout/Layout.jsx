@@ -29,6 +29,9 @@ const styles = StyleSheet.create({
   header: {
     position: "fixed",
     zIndex: 20,
+    height: 80,
+    width: "100vw",
+    backgroundColor: "white",
   },
   children: {
     position: "fixed",

@@ -11,9 +11,13 @@ HamburgerMenu.propTypes = {
 export default function HamburgerMenu({ active, onClick }) {
   return (
     <div className={css(styles.hamburgerMenu)} onClick={onClick}>
-      <div className={`hamburger hamburger-top ${active ? "active" : ""}`} />
-      <div className={`hamburger hamburger-center`} />
-      <div className={`hamburger hamburger-bottom ${active ? "active" : ""}`} />
+      <div className={css(styles.hamburgerContainer)}>
+        <div className={`hamburger hamburger-top ${active ? "active" : ""}`} />
+        <div className={`hamburger hamburger-center`} />
+        <div
+          className={`hamburger hamburger-bottom ${active ? "active" : ""}`}
+        />
+      </div>
     </div>
   );
 }
@@ -21,10 +25,16 @@ export default function HamburgerMenu({ active, onClick }) {
 const styles = StyleSheet.create({
   hamburgerMenu: {
     position: "fixed",
-    top: 38,
-    right: 30,
+    top: 16,
+    right: "max(45px, 7.5vw)",
     cursor: "pointer",
     width: 40,
     height: 40,
+    transform: "translate(50%, 0)",
+  },
+  hamburgerContainer: {
+    position: "fixed",
+    left: 4,
+    top: 12,
   },
 });

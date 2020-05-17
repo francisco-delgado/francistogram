@@ -1,15 +1,20 @@
 import * as React from "react";
 import { css, StyleSheet } from "aphrodite";
 
-export default function CenterColumn({ children }) {
-  return <div className={css(styles.container)}>{children}</div>;
+export default function CenterColumn({ paddingTop = 0, children }) {
+  return (
+    <div style={{ paddingTop }} className={css(styles.centerColumn)}>
+      {children}
+    </div>
+  );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: 100,
+  centerColumn: {
+    overflow: "scoll",
+    width: "85%",
     maxWidth: 680,
-    marginLeft: "auto",
-    marginRight: "auto",
+    height: "100vh",
+    margin: "0 auto",
   },
 });

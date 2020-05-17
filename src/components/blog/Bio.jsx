@@ -21,7 +21,7 @@ export default function Bio() {
             <p>
               Living in San Francisco. Engineer @{" "}
               <a href="https://www.flexport.com">Flexport</a>. ECE/CS @{" "}
-              <a href="www.cmu.com">CMU 2015</a>.
+              <a href="https://www.cmu.edu">CMU 2015</a>.
             </p>
           </>
         );

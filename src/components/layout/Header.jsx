@@ -1,12 +1,10 @@
 import * as React from "react";
-import { navigate } from "gatsby";
 import { css, StyleSheet } from "aphrodite";
 
-import Group from "../base/Group";
 import Text from "../base/Text";
-import TextLink from "../base/TextLink";
+import HamburgerMenu from "../base/HamburgerMenu";
 
-export default function Header() {
+export default function Header({ menuActive, onMenuClick }) {
   return (
     <>
       <div className={css(styles.logo)}>
@@ -14,24 +12,7 @@ export default function Header() {
           Francisco.
         </Text>
       </div>
-      <div className={css(styles.menu)}>
-        <Group gap={32} justifyContent="end">
-          <TextLink
-            scale="link"
-            onClick={() => navigate("/blog")}
-            openInNewTab={true}
-          >
-            blog
-          </TextLink>
-          <TextLink
-            scale="link"
-            onClick={() => navigate("/resume")}
-            openInNewTab={true}
-          >
-            resume
-          </TextLink>
-        </Group>
-      </div>
+      <HamburgerMenu active={menuActive} onClick={onMenuClick} />
     </>
   );
 }
@@ -41,10 +22,5 @@ const styles = StyleSheet.create({
     position: "fixed",
     left: 30,
     top: 30,
-  },
-  menu: {
-    position: "fixed",
-    top: 38,
-    right: 30,
   },
 });

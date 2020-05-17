@@ -1,0 +1,82 @@
+:root {
+  --width: 40px;
+}
+
+.hamburger {
+  height: calc(var(--width) / 20);
+  background: black;
+  border-radius: calc(var(--width) / 20);
+}
+
+/* Hamburger Top */
+
+.hamburger-top {
+  width: calc(var(--width) / 2);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  animation: rotateTop0Deg 0.5s both ease-in-out;
+}
+
+.hamburger-top.active {
+  animation: rotateTop45Deg 0.5s both ease-in-out;
+}
+
+@keyframes rotateTop0Deg {
+  from {
+    top: calc(var(--width) / 4);
+  }
+  to {
+    top: 0px;
+  }
+}
+
+@keyframes rotateTop45Deg {
+  from {
+    top: 0px;
+  }
+  to {
+    top: calc(var(--width) / 4);
+  }
+}
+
+/* Hamburger Center */
+
+.hamburger-center {
+  width: calc(var(--width));
+  position: absolute;
+  top: calc(var(--width) / 4);
+  left: 0px;
+}
+
+/* Hamburger Bottom */
+
+.hamburger-bottom {
+  width: calc(var(--width) / 2);
+  position: absolute;
+  bottom: calc(var(--width) / 2);
+  left: calc(var(--width) / 2);
+  animation: rotateBottom0Deg 0.5s both ease-in-out;
+}
+
+.hamburger-bottom.active {
+  animation: rotateBottom45Deg 0.5s both ease-in-out;
+}
+
+@keyframes rotateBottom0Deg {
+  from {
+    top: calc(var(--width) / 4);
+  }
+  to {
+    top: calc(var(--width) / 2);
+  }
+}
+
+@keyframes rotateBottom45Deg {
+  from {
+    top: calc(var(--width) / 2);
+  }
+  to {
+    top: calc(var(--width) / 4);
+  }
+}

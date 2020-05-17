@@ -1,52 +1,43 @@
 import * as React from "react";
-import { navigate, StaticQuery, graphql } from "gatsby";
+import { navigate, useStaticQuery, graphql } from "gatsby";
 
 import Group from "../base/Group";
 import TextLink from "../base/TextLink";
 import Text from "../base/Text";
 
 export default function BlogHome() {
+  const data = useStaticQuery(query);
+
+  const edges = data.allMdx.edges;
+  console.log(edges);
   return (
-    <StaticQuery
-      query={query}
-      render={data => {
-        const posts = data.allMdx.edges;
+    <Group flexDirection="column" gap={16}>
+      {edges.map(({ node: post }) => {
+        const title = post.frontmatter.title || post.fields.slug;
         return (
-          <Group flexDirection="column" gap={16}>
-            {posts.map(({ node }) => {
-              const title = node.frontmatter.title || node.fields.slug;
-              return (
-                <>
-                  <TextLink
-                    scale="title"
-                    weight="bold"
-                    onClick={() => navigate(`blog${node.fields.slug}`)}
-                  >
-                    {title}
-                  </TextLink>
-                  <Text color="lightGrey" marginBottom={8}>
-                    {node.frontmatter.date} • {node.fields.readingTime.text}
-                  </Text>
-                  <p style={{ marginBottom: 8 }}>
-                    {node.frontmatter.description || node.excerpt}
-                  </p>
-                </>
-              );
-            })}
-          </Group>
+          <>
+            <TextLink
+              scale="title"
+              weight="bold"
+              onClick={() => navigate(`blog${post.fields.slug}`)}
+            >
+              {title}
+            </TextLink>
+            <Text color="lightGrey" marginBottom={8}>
+              {post.frontmatter.date} • {post.fields.readingTime.text}
+            </Text>
+            <p style={{ marginBottom: 8 }}>
+              {post.frontmatter.description || post.excerpt}
+            </p>
+          </>
         );
-      }}
-    />
+      })}
+    </Group>
   );
 }
 
 const query = graphql`
   query BlogHomeQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {

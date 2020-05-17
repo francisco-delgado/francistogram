@@ -14,8 +14,14 @@ export default function Blog() {
   const url = data.file.publicURL;
   return (
     <Layout>
-      <CenterColumn>
-        <embed src={url} style={{ width: 680, height: 905 }}></embed>
+      <CenterColumn paddingTop={100}>
+        <object
+          data={url}
+          type="application/pdf"
+          style={{ width: 680, height: 760 }}
+        >
+          <embed src={url} type="application/pdf" />
+        </object>
       </CenterColumn>
     </Layout>
   );

@@ -17,11 +17,7 @@ export default function Layout({ children }) {
           onMenuClick={() => setMenuActive(!menuActive)}
         />
       </div>
-      <div
-        className={css(styles.children, menuActive ? styles.fixedChildren : "")}
-      >
-        {children}
-      </div>
+      <div className={css(styles.children)}>{children}</div>
       <div className={css(styles.socialMedia)}>
         <SocialMedia />
       </div>
@@ -43,9 +39,6 @@ const styles = StyleSheet.create({
     zIndex: 0,
     width: "100vw",
     height: "100vh",
-  },
-  fixedChildren: {
-    position: "fixed",
   },
   socialMedia: {
     position: "fixed",

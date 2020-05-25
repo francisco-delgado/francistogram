@@ -1,5 +1,5 @@
 import * as React from "react";
-import { navigate, useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 
 import Layout from "../components/layout/Layout";
 import CenterColumn from "../components/layout/CenterColumn";

@@ -10,7 +10,7 @@ import BlogHome from "../components/blog/BlogHome";
 export default function Blog() {
   return (
     <Layout>
-      <CenterColumn paddingTop={100}>
+      <CenterColumn marginTop={100}>
         <Bio />
         <BlogHome />
       </CenterColumn>

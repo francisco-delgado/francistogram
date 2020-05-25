@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   hamburgerMenu: {
     position: "fixed",
     top: 16,
-    right: "max(45px, 7.5vw)",
+    right: "min(45px, 7.5vw)",
     cursor: "pointer",
     width: 40,
     height: 40,

@@ -21,7 +21,7 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout>
-        <CenterColumn paddingTop={100}>
+        <CenterColumn marginTop={100}>
           <SEO
             title={post.frontmatter.title}
             description={post.frontmatter.description || post.excerpt}

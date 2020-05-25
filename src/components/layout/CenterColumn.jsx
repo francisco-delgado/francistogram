@@ -11,7 +11,6 @@ export default function CenterColumn({ marginTop = 0, children }) {
 
 const styles = StyleSheet.create({
   centerColumn: {
-    overflow: "scoll",
     width: "85%",
     maxWidth: 680,
     height: "100vh",

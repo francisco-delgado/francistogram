@@ -19,7 +19,7 @@ export default function Blog() {
   const resumePng = edges.find(edge => edge.node.name === RESUME_PNG).node;
   return (
     <Layout>
-      <CenterColumn paddingTop={100}>
+      <CenterColumn marginTop={100}>
         <img src={resumePng.publicURL} />
         <a href={resumePdf.publicURL} download={true}>
           Download PDF

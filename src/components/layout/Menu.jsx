@@ -78,6 +78,7 @@ export default function Menu({ visible }) {
 const styles = StyleSheet.create({
   menu: {
     position: "fixed",
+    top: 80,
     zIndex: 10,
     backgroundColor: colors.opal,
     width: "100%",

@@ -17,7 +17,11 @@ export default function Layout({ children }) {
           onMenuClick={() => setMenuActive(!menuActive)}
         />
       </div>
-      <div className={css(styles.children)}>{children}</div>
+      <div
+        className={css(styles.children, menuActive ? styles.fixedChildren : "")}
+      >
+        {children}
+      </div>
       <div className={css(styles.socialMedia)}>
         <SocialMedia />
       </div>
@@ -28,17 +32,20 @@ export default function Layout({ children }) {
 const styles = StyleSheet.create({
   header: {
     position: "fixed",
+    top: 0,
     zIndex: 20,
     height: 80,
     width: "100vw",
     backgroundColor: "white",
   },
   children: {
-    position: "fixed",
+    position: "inherit",
     zIndex: 0,
     width: "100vw",
     height: "100vh",
-    overflow: "scroll",
+  },
+  fixedChildren: {
+    position: "fixed",
   },
   socialMedia: {
     position: "fixed",

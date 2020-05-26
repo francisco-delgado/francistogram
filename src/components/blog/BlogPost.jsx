@@ -12,6 +12,7 @@ import SEO from "../base/seo";
 import TextLink from "../base/TextLink";
 import Text from "../base/Text";
 import Divider from "../base/Divider";
+import Group from "../base/Group";
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -36,30 +37,18 @@ class BlogPostTemplate extends React.Component {
           <hr />
           <Divider />
           <Bio />
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-            <li>
-              {previous && (
-                <Link to={`blog${previous.fields.slug}`} rel="prev">
-                  ← {previous.frontmatter.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={`blog${next.fields.slug}`} rel="next">
-                  {next.frontmatter.title} →
-                </Link>
-              )}
-            </li>
-          </ul>
+          <Group justifyContent="space-between" fillChildren={true}>
+            {previous && (
+              <Link to={`blog${previous.fields.slug}`} rel="prev">
+                ← {previous.frontmatter.title}
+              </Link>
+            )}
+            {next && (
+              <Link to={`blog${next.fields.slug}`} rel="next">
+                {next.frontmatter.title} →
+              </Link>
+            )}
+          </Group>
         </CenterColumn>
       </Layout>
     );

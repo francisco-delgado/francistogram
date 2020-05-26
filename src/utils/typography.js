@@ -31,6 +31,7 @@ const typography = new Typography({
       borderBottomColor: "transparent",
       paddingBottom: rhythm(1 / 6),
       transition: "0.3s",
+      lineHeight: 1.5625,
     },
     "a:hover": {
       borderBottomColor: "inherit",

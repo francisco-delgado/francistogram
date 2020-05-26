@@ -38,15 +38,19 @@ class BlogPostTemplate extends React.Component {
           <Divider />
           <Bio />
           <Group justifyContent="space-between" fillChildren={true}>
-            {previous && (
+            {previous ? (
               <Link to={`blog${previous.fields.slug}`} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
+            ) : (
+              <div />
             )}
-            {next && (
+            {next ? (
               <Link to={`blog${next.fields.slug}`} rel="next">
                 {next.frontmatter.title} →
               </Link>
+            ) : (
+              <div />
             )}
           </Group>
         </CenterColumn>

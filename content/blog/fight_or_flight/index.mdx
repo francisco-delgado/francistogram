@@ -4,35 +4,40 @@ date: "2020-06-05"
 description: As unnattural of a reaction as it seems it's just as natural
 ---
 
-The human brain was never built for certain kinds of conditions. As humans we enjoy not being lazy but thinking lazily. it's who we are and what we do
+The human brain was never built for certain kinds of conditions. As humans we enjoy not being lazy but thinking lazily. it's who we are and what we do.
 
-Fight or flight happens when the brain receives a brand new signal that it hasn't processeed before
+Fight or flight happens when the brain receives a brand new signal that it hasn't processeed before.
 
-Think of a function lets call it `what_do_i_do`. You're used to seeing `a`, `b`, `c` as inputs but now you've come across a `d`. What do you do next?
-
-It bubbles up to a higher order function, but a `d` is just too new and doesn't apply to any function you've ever written before. You have no choices left but to call `base_function(d)` that takes in any inputs and deterministically returns one of
-
-1. Fight - `1`
-2. Flight - `0`
-
-Regardless of the result assigned, when all is said and done you now have more information for the next time. You've saw a `d` acted on one of fight or flight and have more information, the degree to which it worked, which we'll save in to `success_d` which is a decimal between 0 and 1, but tends to be closer to the extremes
+Think of a function lets call it `what_do_i_do`. You're used to seeing `a`, `b`, `c` as inputs but now you've come across a `d`.
 
 What do you do next?
 
-You first consider how often you'll encouter `d` again. For example `d == bear` and you live in the city it's pretty unlikely and decide to apply a quick fix
+`d` is just too new and doesn't apply to any function you've ever written before. You have no choices left but to call `base_function(d)` that takes in any inputs and deterministically returns one of
+
+1. Fight, represented with a `1`
+2. Flight, represented with a `0`
+
+Regardless of the result assigned, when all is said and done you now have more information for the next time. You've saw a `d` acted on one of fight or flight and now have more information, the degree to which it worked, which we'll save in to `bias_d` which is a decimal between `0` and `1`, but tends to be closer to the extremes e.g. it worked or it didn't
+
+What do you do next?
+
+You first consider how often you'll encouter `d` again which we'll call `d_t`. For example `d == bear` and you live in the city `d_t` is closer to `0` but if you live in the hills then `d_t` is closer to `1`
+
+You look for answers on Google to understand how others have dealt with `d` by calling `google(d, d_t)`. It returns another decimal between `0` and `1` as a function of the event and how long you think it's worth for you to dig in to.
+
+You then weigh in `bias_d` from your experience and save it in to a final `do_d` or, your duty, on how you act the next time you encounter `d`.
+
+It'll look something like this
 
 ```ruby
-def what_do_i_do(a, b, c, d):
-  # other stuff before
-  return success_d if d
-  # other stuff after
+do_d = google(d, d_t) * bias_d
 ```
 
-or you just moved to the countryside and it's likely you'll see them again. You Google how others have dealt with `d` by calling `google(d)` weigh your bias `success_d` and update your function
+as a one time operation and then we update our function to be
 
 ```ruby
 def what_do_i_do(a, b, c, d):
   # other stuff before
-  return google(d) * success_d if d
+  return do_d if d
   # other stuff after
 ```

@@ -14,7 +14,9 @@ and
 
 > Entities are not to be multiplied beyond necessity
 
-If you ever have a moment when you think to yourself, "Hmm, something just doesn't make sense". Try again - you haven't abstracted the problem enough.
+If you ever have a moment when you think to yourself, "Hmm, something just doesn't make sense".
+
+Try again. You haven't abstracted the problem enough.
 
 ### Real World Example
 
@@ -45,7 +47,9 @@ The first assumption you made about them being different people comes in to ques
 
 > What are the odds that two different people took the time to setup automated messaging and arrived at the exact same message? It's possible, but _really_ unlikely?
 
-You apply Occam's Razor knowing there exists is a simpler solution. You add a layer of abstraction and you start to consider it must be a single realtor that owns both listings. Something still doesn't make sense. It's as if they spent all the time to write up the message
+You apply Occam's Razor knowing there exists is a simpler solution.
+
+Adding a layer of abstraction and you consider it might a single realtor that owns both listings. Something still doesn't make sense. It's as if they spent all the time to write up the message
 
 ```ruby
 def automated_response(rooms=4, beds=8, people):
@@ -63,15 +67,17 @@ airbnb_listing_a.set_automated_response(automated_response(4, 8, 10))
 airbnb_listing_b.set_automated_response(automated_response(4, 8, 10))
 ```
 
-Again you question your assumption that it's a single realtor.
+Again, you question your assumptions. Maybe it's not a single realtor.
 
 > Why would a single person go through all the trouble to make two AirBnb accounts, setup an automated response, but forget the final touch?
 
-You apply Occam's Razor knowing there exists is a simpler solution. The realtor owns at least a two homes and so you can assume he's wealthy. Knowing that wealth compounds continuously odds are good that: given he owns two homes he owns more than two.
+You apply Occam's Razor knowing there exists is a simpler solution.
 
-It's conceivable he's so wealthy it's not worth his time to add an automated response to all of them and outsourced it to an intern.
+The realtor owns at least a two homes and so you can assume he's wealthy. Knowing that wealth compounds continuously odds are good that: given he owns two homes he owns more than two.
 
-He doesn't trust the intern to write the message because a bad message would cause him to lose business and quickly creates `automated_response` himself and passes it to an intern.
+It's conceivable he's so wealthy it's not worth his time to add an automated response to all of them and added a layer of abstraction to outsource the work it to an intern.
+
+He doesn't trust the intern to write the message because a poorly worded message would cause him to lose business and quickly creates `automated_response` himself and passes it to an intern.
 
 The intern, nervous about messing up, asks the realtor for some guidance getting started.
 
@@ -83,8 +89,10 @@ The realtor, not realizing it's the interns first job, shows him step by step by
 4. Then you pass in `automated_response(4, 8, 10)`
 5. Repeat for all of my other accounts, the logins are on the post-it note
 
-So the intern does **exactly** that. Each listing ends up with an automated message of `automated_response(4, 8, 10)`.
+The intern - does **exactly** that.
 
-The realtor gave him a fish, not how to fish.
+Each listing ends up with an automated message of `automated_response(4, 8, 10)`.
+
+The realtor gave him a function. He didn't teach him how to use a function.
 
 As always, there's a perfectly rational explanation and again all is right in the world.

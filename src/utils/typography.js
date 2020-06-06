@@ -63,9 +63,6 @@ const typography = new Typography({
     "blockquote cite:before": {
       content: '"— "',
     },
-    preformatted: {
-      fontSize: scale(1 / 3),
-    },
     [MOBILE_MEDIA_QUERY]: {
       blockquote: {
         marginLeft: rhythm(-3 / 4),

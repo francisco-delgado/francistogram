@@ -1,0 +1,78 @@
+---
+title: Levels of Abstraction
+date: "2020-06-05"
+description: When something doesn't click, consider a level higher.
+---
+
+### Occam's Razor
+
+Also known as the Law of Economy or Law of Parsimony the law can be expressed in a few different ways
+
+> Given two competing theories, the simpler one should be preferred
+
+and
+
+> Entities are not to be multiplied beyond necessity
+
+Effectively, don't stress it. There's always a rational explanation.
+
+### Real World Example
+
+If you ever have a moment when you think to yourself, "hmm, something just isn't sitting right" it's likely that you haven't abstracted the problem enough.
+
+You're on AirBnb looking for a place to stay and message a few listings to see what hits. You go through the effort of writing yourself a template and modify the sent message based on the few variables - rooms, beds, people, etc.
+
+```ruby
+def book_message(people, rooms, beds):
+  return "Hello,\
+  I'd like to book your AirBnb.\
+  We'll have #{people} people coming.\
+  Just wanted to confirm we'd all fit comfortably.\
+  #{beds} beds across the #{rooms} rooms, correct?\
+  - Francisco"
+```
+
+You get automated responses from two different listings with different realtors A and B. Excited to finally be done with the search process you open the message and to your surprise they're the exact same response as if they spent the time to write the function
+
+```ruby
+def automated_response(rooms=4, beds=8, people):
+  return "Hello, \
+  We'd love to host you!\
+  The place has #{rooms} rooms.\
+  #{people} people fit comfortably in the #{beds}.\
+  - You'll love it!"
+```
+
+but called it without passing in the variables.
+
+```ruby
+automated_response_A = automated_response(4, 8, 10)
+automated_response_B = automated_response(4, 8, 10)
+```
+
+The first assumption you made about them being different people comes in to question.
+
+> What are the odds that two people would reply the exact same message?
+
+Applying Occam's Razor there must be a simpler solution. You add a layer of abstraction and you start to consider other possiblities it must be actually a single realtor that owns both listings. Something still doesn't make sense.
+
+> Why would a single person go through all the trouble to make two AirBnb accounts, setup an automated response, but forget the final bit?
+
+You're unsure why so you apply Occam's Razor and realize the realtor owns at least a two homes and must be wealthy. Know that wealth compounds continuously odds are, given he owns to homes he owns more than two. He's so wealthy it's not worth his time to add an automated response to all of them so he outsources his work and hires an intern.
+
+He enjoys writing and quickly creates `automated_response` himself and passes it to an intern.
+
+The intern, nervous about messing up, asks the realtor for some guidance.
+
+The realtor, not realizing it's the interns first job, shows him step by step by example
+
+1. Login to `airbnb.com`
+2. Click the listing
+3. Then you just call `automated_response(4, 8, 10)`
+4. Repeat for all of my other accounts. The logins are on the post-it note
+
+So the intern does **exactly** that. Each listing ends up with an automated message of `automated_response(4, 8, 10)`.
+
+The realtor gave him a fish, not how to fish.
+
+As always, there's a perfectly rational explanation and again all is right in the world.

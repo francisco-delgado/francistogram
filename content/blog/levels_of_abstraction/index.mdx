@@ -14,16 +14,14 @@ and
 
 > Entities are not to be multiplied beyond necessity
 
-Effectively, don't stress it. There's always a rational explanation.
+If you ever have a moment when you think to yourself, "Hmm, something just doesn't make sense". Try again - you haven't abstracted the problem enough.
 
 ### Real World Example
 
-If you ever have a moment when you think to yourself, "hmm, something just isn't sitting right" it's likely that you haven't abstracted the problem enough.
-
-You're on AirBnb looking for a place to stay and message a few listings to see what hits. You go through the effort of writing yourself a template and modify the sent message based on the few variables - rooms, beds, people, etc.
+You're on AirBnb looking for a place to stay and message a few listings to see what your options are. You through the effort of writing yourself a function to create a message based on the few variables you care about - `rooms`, `beds`, and `people`
 
 ```ruby
-def book_message(people, rooms, beds):
+def request_message(people, rooms, beds):
   return "Hello,\
   I'd like to book your AirBnb.\
   We'll have #{people} people coming.\
@@ -32,7 +30,22 @@ def book_message(people, rooms, beds):
   - Francisco"
 ```
 
-You get automated responses from two different listings with different realtors A and B. Excited to finally be done with the search process you open the message and to your surprise they're the exact same response as if they spent the time to write the function
+You send out a five requests
+
+```ruby
+airbnb_listing_a.send_message(request_message(4, 8, 10))
+airbnb_listing_b.send_message(request_message(5, 7, 10))
+...
+airbnb_listing_e.send_message(request_message(5, 5, 10))
+```
+
+You get automated responses from listings `A` and `B`. Excited to finally be done with the search process you open the message and to your surprise they're the exact same response. You double-check the realtors, their names are different `A'` and `B'`.
+
+The first assumption you made about them being different people comes in to question.
+
+> What are the odds that two different people took the time to setup automated messaging and arrived at the exact same message? It's possible, but _really_ unlikely?
+
+You apply Occam's Razor knowing there exists is a simpler solution. You add a layer of abstraction and you start to consider it must be a single realtor that owns both listings. Something still doesn't make sense. It's as if they spent all the time to write up the message
 
 ```ruby
 def automated_response(rooms=4, beds=8, people):
@@ -43,33 +56,32 @@ def automated_response(rooms=4, beds=8, people):
   - You'll love it!"
 ```
 
-but called it without passing in the variables.
+but gave up right at the end and just copy paste
 
 ```ruby
-automated_response_A = automated_response(4, 8, 10)
-automated_response_B = automated_response(4, 8, 10)
+airbnb_listing_a.set_automated_response(automated_response(4, 8, 10))
+airbnb_listing_b.set_automated_response(automated_response(4, 8, 10))
 ```
 
-The first assumption you made about them being different people comes in to question.
+Again you question your assumption that it's a single realtor.
 
-> What are the odds that two people would reply the exact same message?
+> Why would a single person go through all the trouble to make two AirBnb accounts, setup an automated response, but forget the final touch?
 
-Applying Occam's Razor there must be a simpler solution. You add a layer of abstraction and you start to consider other possiblities it must be actually a single realtor that owns both listings. Something still doesn't make sense.
+You apply Occam's Razor knowing there exists is a simpler solution. The realtor owns at least a two homes and so you can assume he's wealthy. Knowing that wealth compounds continuously odds are good that: given he owns two homes he owns more than two.
 
-> Why would a single person go through all the trouble to make two AirBnb accounts, setup an automated response, but forget the final bit?
+It's conceivable he's so wealthy it's not worth his time to add an automated response to all of them and outsourced it to an intern.
 
-You're unsure why so you apply Occam's Razor and realize the realtor owns at least a two homes and must be wealthy. Know that wealth compounds continuously odds are, given he owns to homes he owns more than two. He's so wealthy it's not worth his time to add an automated response to all of them so he outsources his work and hires an intern.
+He doesn't trust the intern to write the message because a bad message would cause him to lose business and quickly creates `automated_response` himself and passes it to an intern.
 
-He enjoys writing and quickly creates `automated_response` himself and passes it to an intern.
-
-The intern, nervous about messing up, asks the realtor for some guidance.
+The intern, nervous about messing up, asks the realtor for some guidance getting started.
 
 The realtor, not realizing it's the interns first job, shows him step by step by example
 
 1. Login to `airbnb.com`
-2. Click the listing
-3. Then you just call `automated_response(4, 8, 10)`
-4. Repeat for all of my other accounts. The logins are on the post-it note
+2. Click listing, in this case `airbnb_listing_a`
+3. Look for the set automated method function `airbnb_listing_a.set_automated_response`
+4. Then you pass in `automated_response(4, 8, 10)`
+5. Repeat for all of my other accounts, the logins are on the post-it note
 
 So the intern does **exactly** that. Each listing ends up with an automated message of `automated_response(4, 8, 10)`.
 

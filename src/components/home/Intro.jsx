@@ -1,7 +1,7 @@
 import * as React from "react";
 import { navigate } from "gatsby";
 import { css, StyleSheet } from "aphrodite";
-import { useTrail, useTransition, animated, config } from "react-spring";
+import { useTrail, animated, config } from "react-spring";
 
 import { CloseOutlined } from "@ant-design/icons";
 
@@ -53,27 +53,6 @@ export default function Intro() {
     to: {
       opacity: 1,
       transform: "translate(0,0)",
-    },
-  });
-
-  const introItems = [
-    { id: 0, text: "Hi" },
-    { id: 1, text: "I'm Francisco" },
-  ];
-
-  const transitions = useTransition(introItems, item => item.id, {
-    config: config.gentle,
-    from: {
-      opacity: 0,
-      y: -20,
-    },
-    enter: {
-      opacity: 1,
-      y: 0,
-    },
-    leave: {
-      opacity: 0,
-      y: 20,
     },
   });
 

@@ -1,11 +1,8 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { css, StyleSheet } from "aphrodite";
-import Image from "gatsby-image";
-import styled from "styled-components";
 
-import Group from "../base/Group";
-// import MailchimpEmail from "../base/MailchimpEmail";
+import MailchimpEmail from "../base/MailchimpEmail";
 
 import colors from "../styles/colors";
 
@@ -24,7 +21,7 @@ export default function Bio() {
               <a href="https://www.flexport.com">Flexport</a>. ECE/CS @{" "}
               <a href="https://www.cmu.edu">CMU 2015</a>.
             </p>
-            {/* <MailchimpEmail /> */}
+            <MailchimpEmail />
           </>
         );
       }}

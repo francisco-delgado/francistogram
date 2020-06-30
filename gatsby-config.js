@@ -26,14 +26,14 @@ module.exports = {
         name: "blog",
       },
     },
-    // {
-    //   resolve: "gatsby-plugin-mailchimp",
-    //   options: {
-    //     endpoint:
-    //       "https://francistogram.us10.list-manage.com/subscribe/post?u=e4d99fbb2c2061f7dfadebade&amp;id=f34f0f7155", // string; add your MC list endpoint here; see instructions below
-    //     timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
-    //   },
-    // },
+    {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://francistogram.us10.list-manage.com/subscribe/post?u=e4d99fbb2c2061f7dfadebade&amp;id=f34f0f7155",
+        timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {

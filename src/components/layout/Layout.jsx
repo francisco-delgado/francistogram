@@ -1,6 +1,8 @@
 import * as React from "react";
 import { css, StyleSheet } from "aphrodite";
 
+import Notifications from "react-notify-toast";
+
 import Header from "./Header";
 import SocialMedia from "./SocialMedia";
 
@@ -21,6 +23,7 @@ export default function Layout({ children }) {
       <div className={css(styles.socialMedia)}>
         <SocialMedia />
       </div>
+      <Notifications />
     </>
   );
 }

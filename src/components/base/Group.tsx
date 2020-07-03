@@ -3,11 +3,44 @@ import { StyleSheet, css } from "aphrodite";
 
 import flexboxStyles from "../styles/flexboxStyles";
 
-const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-  },
-});
+type Props = {
+  children: React.ReactNode;
+  gap?: number;
+  flexWrap?: "nowrap" | "wrap" | "wrap-reverse";
+  flexDirection?: "row" | "row-reverse" | "column" | "column-reverse";
+  justifyContent?:
+    | "center"
+    | "start"
+    | "end"
+    | "flex-start"
+    | "flex-end"
+    | "left"
+    | "right"
+    | "normal"
+    | "space-between"
+    | "space-around"
+    | "space-evenly"
+    | "stretch"
+    | "safe center"
+    | "unsafe center";
+  alignItems?:
+    | "normal"
+    | "stretch"
+    | "center"
+    | "start"
+    | "end"
+    | "flex-start"
+    | "flex-end"
+    | "self-start"
+    | "self-end"
+    | "baseline"
+    | "first baseline"
+    | "last baseline"
+    | "safe center"
+    | "unsafe center";
+  fillChildren?: boolean;
+  containerFlex?: number | "none";
+};
 
 const defaultProps = {
   gap: 8,
@@ -28,7 +61,7 @@ export default function Group({
   alignItems,
   fillChildren,
   containerFlex,
-}) {
+}: Props) {
   const elements = React.Children.toArray(children);
   const flex = fillChildren ? 1 : null;
   return (
@@ -62,3 +95,9 @@ export default function Group({
     </div>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+  },
+});

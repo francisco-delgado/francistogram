@@ -1,9 +1,22 @@
 import * as React from "react";
 import { css, StyleSheet } from "aphrodite";
 
-export default function CenterColumn({ marginTop = 0, children }) {
+type Props = {
+  marginTop: number;
+  marginBottom: number;
+  children: React.ReactNode;
+};
+
+export default function CenterColumn({
+  marginTop = 0,
+  marginBottom = 0,
+  children,
+}: Props) {
   return (
-    <div style={{ marginTop }} className={css(styles.centerColumn)}>
+    <div
+      style={{ marginTop, marginBottom }}
+      className={css(styles.centerColumn)}
+    >
       {children}
     </div>
   );

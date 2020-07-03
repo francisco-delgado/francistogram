@@ -13,7 +13,7 @@ const typography = new Typography({
     },
     {
       name: "Jost",
-      styles: ["Light 300", "Regular 500"],
+      styles: ["Light 300", "Medium 500"],
     },
   ],
   headerFontFamily: ["Montserrat", "sans-serif"],
@@ -38,8 +38,11 @@ const typography = new Typography({
       paddingBottom: 0,
       transition: "0.3s",
     },
-    "h1,h2,h3,h4,h5,h6": {
+    "h1,h2,h3": {
       marginTop: rhythm(2),
+    },
+    "h4,h5,h6": {
+      marginTop: rhythm(1),
     },
     p: {
       lineHeight: rhythm(1),

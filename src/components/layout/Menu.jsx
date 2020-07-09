@@ -22,11 +22,11 @@ export default function Menu({ visible }) {
               Contact Details
             </Text>
             <TextLink
-              href="mailto:francisco@francistogram.com"
+              href="mailto:hello@francistogram.com"
               scale="title"
               color="black"
             >
-              francisco@francistogram.com
+              hello@francistogram.com
             </TextLink>
             <Text scale="title" color="black">
               (415) 967-2601

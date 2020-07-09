@@ -10,7 +10,7 @@ export default function Header({ menuActive, onMenuClick }) {
     <>
       <div className={css(styles.logo)} onClick={() => navigate("/")}>
         <Text scale="title" weight="bold">
-          Francisco.
+          Francistogram.
         </Text>
       </div>
       <HamburgerMenu active={menuActive} onClick={onMenuClick} />

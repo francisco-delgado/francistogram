@@ -42,8 +42,17 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-remark-copy-linked-files",
-      options: {},
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-copy-linked-files",
+            options: {
+              destinationDir: "path/to/dir",
+            },
+          },
+        ],
+      },
     },
     {
       resolve: "gatsby-remark-videos",

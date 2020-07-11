@@ -32,6 +32,7 @@ const typography = new Typography({
       paddingBottom: rhythm(1 / 6),
       transition: "0.3s",
       lineHeight: 1.5625,
+      fontWeight: "bold",
     },
     "a:hover": {
       borderBottomColor: "inherit",
@@ -43,6 +44,7 @@ const typography = new Typography({
     },
     "h4,h5,h6": {
       marginTop: rhythm(1),
+      lineHeight: rhythm(3 / 2),
     },
     p: {
       lineHeight: rhythm(1),

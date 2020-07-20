@@ -8,17 +8,18 @@
 ### Install Packages
 
 ```sh
+cd francistogram/
 npm install
 ```
 
-### Start Developing
+### Running the Server
 
 ```sh
-cd francistogram/
 gatsby develop
 ```
 
-View the blog on http://localhost:8000/
+View the blog at http://localhost:8000/
+Test GraphQL queries at http://localhost:8000/___graphql
 
 ### Deploy
 

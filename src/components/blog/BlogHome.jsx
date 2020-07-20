@@ -19,7 +19,7 @@ export default function BlogHome() {
             <TextLink
               scale="title"
               weight="bold"
-              onClick={() => navigate(`blog${post.fields.slug}`)}
+              onClick={() => navigate(`/blog${post.fields.slug}`)}
             >
               {title}
             </TextLink>

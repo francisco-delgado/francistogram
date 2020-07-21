@@ -6,7 +6,7 @@ description: When something doesn't click consider thinking one level higher
 
 ### Occam's Razor
 
-Also known as the Law of Economy or Law of Parsimony the law can be expressed in a few different ways
+Also known as the Law of Economy or Law of Parsimony, it can be expressed in a few different ways
 
 > Given two competing theories, the simpler one should be preferred
 
@@ -20,7 +20,7 @@ Try again. You haven't abstracted the problem enough.
 
 ### Real World Example
 
-You're on AirBnb looking for a place to stay and message a few listings to see what your options are. You through the effort of writing yourself a function to create a message based on the few variables you care about - `rooms`, `beds`, and `people`
+You're on AirBnb looking for a place to stay and message a few listings to see what your options are. You go through the effort of writing yourself a function to create a message based on the few variables you care about - `rooms`, `beds`, and `people`
 
 ```ruby
 def request_message(people, rooms, beds):
@@ -32,7 +32,7 @@ def request_message(people, rooms, beds):
   - Francisco"
 ```
 
-You send out a five requests
+You send out five requests
 
 ```ruby
 airbnb_listing_a.send_message(request_message(4, 8, 10))
@@ -43,13 +43,13 @@ airbnb_listing_e.send_message(request_message(5, 5, 10))
 
 You get automated responses from listings `A` and `B`. Excited to finally be done with the search process you open the message and to your surprise they're the exact same response. You double-check the realtors, their names are different `A'` and `B'`.
 
-The first assumption you made about them being different people comes in to question.
+The first assumption you made about them being different people comes into question.
 
-> What are the odds that two different people took the time to setup automated messaging and arrived at the exact same message? It's possible, but _really_ unlikely?
+> What are the odds that two different people took the time to set up automated messaging and arrived at the exact same message? It's possible, but _really_ unlikely?
 
-You apply Occam's Razor knowing there exists is a simpler solution.
+You apply Occam's Razor knowing there is a simpler solution.
 
-Adding a layer of abstraction and you consider it might a single realtor that owns both listings. Something still doesn't make sense. It's as if they spent all the time to write up the message
+Adding a layer of abstraction, you consider it might be a single realtor that owns both listings. Something still doesn't make sense. It's as if they spent all the time to write up the message
 
 ```ruby
 def automated_response(rooms=4, beds=8, people):
@@ -69,13 +69,13 @@ airbnb_listing_b.set_automated_response(automated_response(4, 8, 10))
 
 Again, you question your assumptions. Maybe it's not a single realtor.
 
-> Why would a single person go through all the trouble to make two AirBnb accounts, setup an automated response, but forget the final touch?
+> Why would a single person go through all the trouble to make two AirBnb accounts, set up an automated response, but forget the final touch?
 
-You apply Occam's Razor knowing there exists is a simpler solution.
+You apply Occam's Razor knowing there is a simpler solution.
 
-The realtor owns at least a two homes and so you can assume he's wealthy. Knowing that wealth compounds continuously odds are good that: given he owns two homes he owns more than two.
+The realtor owns at least two homes, so you can assume he's wealthy. Knowing that wealth compounds continuously, odds are good that: given he owns two homes, he owns more than two.
 
-It's conceivable he's so wealthy it's not worth his time to add an automated response to all of them and added a layer of abstraction to outsource the work it to an intern.
+It's conceivable he's so wealthy it's not worth his time to add an automated response to all of them and added a layer of abstraction to outsource the work to an intern.
 
 He doesn't trust the intern to write the message because a poorly worded message would cause him to lose business and quickly creates `automated_response` himself and passes it to an intern.
 

@@ -16,8 +16,7 @@ export default function Bio() {
           <>
             <p className={css(styles.writtenBy)}>Written by</p>
             <h3 className={css(styles.author)}>Fran</h3>
-            <p>A modern day re-inventor</p>
-            <p>Share your knowledge, makes the world go round</p>
+            <p>Knowledge makes the world go round, share yours</p>
             <MailchimpEmail />
           </>
         );

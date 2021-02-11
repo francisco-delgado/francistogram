@@ -80,19 +80,18 @@ module.exports = {
         trackingId: "UA-168717941-1",
       },
     },
-    {
-      resolve: "gatsby-plugin-manifest",
-      options: {
-        name: "Francisco Delgado Blog",
-        short_name: "GatsbyJS",
-        start_url: "/",
-        background_color: "#ffffff",
-        theme_color: "#663399",
-        display: "minimal-ui",
-        // edit below
-        // icon: "content/assets/gatsby-icon.png",
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-manifest",
+    //   options: {
+    //     name: "Francisco Delgado Blog",
+    //     short_name: "GatsbyJS",
+    //     start_url: "/",
+    //     background_color: "#ffffff",
+    //     theme_color: "#663399",
+    //     display: "minimal-ui",
+    //     icon: "content/assets/gatsby-icon.png",
+    //   },
+    // },
     {
       resolve: "gatsby-plugin-typography",
       options: {

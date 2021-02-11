@@ -17,12 +17,7 @@ export default function Bio() {
             <p className={css(styles.writtenBy)}>Written by</p>
             <h3 className={css(styles.author)}>Fran</h3>
             <p>A modern day re-inventor</p>
-            <p>
-              If my writing has helped you and you feel so inclined to leave me
-              a tip here's my BTC address{" "}
-              <b>bc1q9dry7zfcvtlypqc4pepw6pyrrm9pv4ha0v7del</b>
-            </p>
-            <p>Giving makes the world go round</p>
+            <p>Share your knowledge, makes the world go round</p>
             <MailchimpEmail />
           </>
         );
